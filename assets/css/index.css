@@ -1,0 +1,81 @@
+body {
+  background-color: #000;
+}
+
+#console {
+  font-family: courier, monospace;
+  color: #fff;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  font-size: 14px;
+}
+
+a {
+  color: #0bc;
+  text-decoration: none;
+}
+
+#a {
+  color: #0f0;
+}
+
+#c {
+  color: #0bc;
+}
+
+#b {
+  color: #ff0096;
+}
+
+#k {
+  animation: change 2.5s infinite;
+}
+
+#op {
+  color: #888888;
+}
+
+.command {
+  color: #fff !important;
+}
+
+.bio {
+  color: #fff !important;
+}
+
+p {
+  color: #fff;
+}
+
+@keyframes change {
+  0% {
+    color: white;
+  }
+  20% {
+    color: red;
+  }
+  40% {
+    color: green;
+  }
+  60% {
+    color: blue;
+  }
+  80% {
+    color: blueviolet;
+  }
+  100% {
+    color: orange;
+  }
+}
+
+#cursor {
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

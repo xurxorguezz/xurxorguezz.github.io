@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/0RtLKjHY/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - @xurxorguezz_ </title>
+    
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Estilos para el botón de regreso */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #981b9d;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button i {
+            font-size: 28px; /* Tamaño de la flecha */
+        }
+
+        .projects-container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #981b9d;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+        }
+
+        .project-title::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: #981b9d;
+            transition: width 0.3s;
+        }
+
+        .project-title:hover::after {
+            width: 100%;
+        }
+
+        .project-description {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Efecto de neón para títulos */
+        .neon-text {
+            text-shadow: 0 0 5px #981b9d,
+                       0 0 10px #981b9d,
+                       0 0 20px #981b9d;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón de regreso con ícono de FontAwesome -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> <!-- Flecha más gruesa -->
+    </a>
+
+    <div class="projects-container">
+        <h1 class="neon-text" style="text-align: center; margin-bottom: 2rem;">Mis Proyectos:</h1>
+        <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+
+    <script>
+        const projects = [
+            {
+                title: "VanishMail",
+                description: "Crea una dirección de correo electrónico temporal con VanishMail",
+                image: "https://i.ibb.co/7xgZj5c0/vanishmail.png",
+                link: "https://xurxorguezz.github.io/VanishMail/"
+            },
+            {
+                title: "Unblocker by @xurxorguezz_",
+                description: "Un elegante proxy web compatible con cientos de sitios populares de todo el mundo, para el mundo entero!",
+                image: "https://i.ibb.co/RGb0h6pC/proxy.png",
+                link: "https://xurxorguezz.github.io/unblckrbyxurxorguezz/static/index.html"
+            },
+            {
+                title: "StartPage by @xurxorguezz_",
+                description: "Página de inicio minimalista y elegante.",
+                image: "https://i.ibb.co/GvbjVHkJ/startpage.png",
+                link: "https://xurxorguezz.github.io/startpagebyxurxorguezz/"
+            },
+            {
+                title: "Translator by @xurxorguezz_",
+                description: "Traductor simple y eficiente que permite traducir texto entre diferentes idiomas. Soporta entrada de texto manual y subida de documentos para traducción automática.",
+                image: "https://i.ibb.co/d4CJd0sf/traductor.png",
+                link: "https://xurxorguezz.github.io/translatorbyxurxorguezz/"
+            },
+            {
+                title: "LaHoraDeXurxo",
+                description: "Una implementación de reloj circular elegante y moderna que presenta un diseño elegante.",
+                image: "https://i.ibb.co/4RtW7jx3/reloj.png",
+                link: "https://xurxorguezz.github.io/LaHoraDeXurxo"
+            }
+        ];
+
+        function generateProjects() {
+            const grid = document.getElementById('projectsGrid');
+            
+            projects.forEach((project, index) => {
+                const projectCard = document.createElement('div');
+                projectCard.className = `project-card animate-fade-in`;
+                projectCard.style.animationDelay = `${index * 0.2}s`;
+                
+                projectCard.innerHTML = `
+                    <img src="${project.image}" alt="${project.title}" class="project-image">
+                    <a href="${project.link}" class="project-title">${project.title}</a>
+                    <p class="project-description">${project.description}</p>
+                `;
+
+                projectCard.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('active');
+                    }
+                });
+
+                grid.appendChild(projectCard);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateProjects();
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
