@@ -30,7 +30,7 @@ Mi sitio web está diseñado para emular una terminal. Puedes explorar mis proye
 - Desarrollo full-stack
 
 ## 🌍 Visita mi sitio
-🔗 [xurxorguezz.sh](https://xurxorguezz.github.io))
+🔗 [xurxorguezz.sh](https://xurxorguezz.github.io)
 
 # Gracias
 
